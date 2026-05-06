@@ -1,0 +1,168 @@
+// A generic double-ended queue (deque) backed by EVM storage.
+//
+// OpenZeppelin's Solidity port only supports `bytes32` values; callers must
+// encode/decode their own types. With Fe generics one definition suffices for
+// any `T: WordRepr + Default` — `Deque<u256>`, `Deque<Address>`, ...
+//
+// Note: OZ packs (begin, end) as two `uint128` fields into a single slot.
+// We use `u256` indices instead because `u128` does not implement
+// `StorageKey` in std (and Fe's orphan rule prevents adding it here).
+// Switching is purely a gas optimisation and does not change the API.
+
+use std::evm::StorageMap
+use std::evm::word::WordRepr
+use core::ops::{WrappingAdd, WrappingSub}
+
+/// Double-ended queue with O(1) push/pop on both ends.
+///
+/// `begin` and `end` are circular indices: empty when `begin == end`,
+/// full when `end + 1 == begin` (mod 2^256 — practically unreachable).
+pub struct Deque<T> {
+    begin: u256,
+    end: u256,
+    data: StorageMap<u256, T>,
+}
+
+impl<T> Deque<T> where T: WordRepr + Default {
+    // ---- Inspection --------------------------------------------------------
+
+    pub fn length(self) -> u256 {
+        self.end.wrapping_sub(self.begin)
+    }
+
+    pub fn empty(self) -> bool {
+        self.end == self.begin
+    }
+
+    /// Resets indices without reclaiming stale slot storage.
+    pub fn clear(mut self) {
+        self.begin = 0
+        self.end = 0
+    }
+
+    // ---- Internal helpers --------------------------------------------------
+
+    fn pop_back_unchecked(mut self) -> T {
+        let i = self.end.wrapping_sub(1)
+        let value = self.data.get(key: i)
+        self.data.set(key: i, value: T::default())
+        self.end = i
+        value
+    }
+
+    fn pop_front_unchecked(mut self) -> T {
+        let i = self.begin
+        let value = self.data.get(key: i)
+        self.data.set(key: i, value: T::default())
+        self.begin = i.wrapping_add(1)
+        value
+    }
+
+    // ---- Back --------------------------------------------------------------
+
+    pub fn try_push_back(mut self, _ value: own T) -> bool {
+        let next = self.end.wrapping_add(1)
+        if next == self.begin {
+            return false
+        }
+        self.data.set(key: self.end, value: value)
+        self.end = next
+        true
+    }
+
+    pub fn push_back(mut self, _ value: own T) {
+        if !self.try_push_back(value) {
+            panic()
+        }
+    }
+
+    pub fn try_pop_back(mut self) -> Option<T> {
+        if self.empty() {
+            return Option::None
+        }
+        Option::Some(self.pop_back_unchecked())
+    }
+
+    pub fn pop_back(mut self) -> T {
+        if self.empty() {
+            panic()
+        }
+        self.pop_back_unchecked()
+    }
+
+    pub fn try_back(self) -> Option<T> {
+        if self.empty() {
+            return Option::None
+        }
+        Option::Some(self.data.get(key: self.end.wrapping_sub(1)))
+    }
+
+    pub fn back(self) -> T {
+        if self.empty() {
+            panic()
+        }
+        self.data.get(key: self.end.wrapping_sub(1))
+    }
+
+    // ---- Front -------------------------------------------------------------
+
+    pub fn try_push_front(mut self, _ value: own T) -> bool {
+        let next = self.begin.wrapping_sub(1)
+        if next == self.end {
+            return false
+        }
+        self.data.set(key: next, value: value)
+        self.begin = next
+        true
+    }
+
+    pub fn push_front(mut self, _ value: own T) {
+        if !self.try_push_front(value) {
+            panic()
+        }
+    }
+
+    pub fn try_pop_front(mut self) -> Option<T> {
+        if self.empty() {
+            return Option::None
+        }
+        Option::Some(self.pop_front_unchecked())
+    }
+
+    pub fn pop_front(mut self) -> T {
+        if self.empty() {
+            panic()
+        }
+        self.pop_front_unchecked()
+    }
+
+    pub fn try_front(self) -> Option<T> {
+        if self.empty() {
+            return Option::None
+        }
+        Option::Some(self.data.get(key: self.begin))
+    }
+
+    pub fn front(self) -> T {
+        if self.empty() {
+            panic()
+        }
+        self.data.get(key: self.begin)
+    }
+
+    // ---- Indexed access ----------------------------------------------------
+
+    pub fn try_at(self, _ index: u256) -> Option<T> {
+        if index >= self.length() {
+            return Option::None
+        }
+        Option::Some(self.data.get(key: self.begin.wrapping_add(index)))
+    }
+
+    pub fn at(self, _ index: u256) -> T {
+        if index >= self.length() {
+            panic()
+        }
+        self.data.get(key: self.begin.wrapping_add(index))
+    }
+}
