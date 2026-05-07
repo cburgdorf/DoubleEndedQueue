@@ -1,0 +1,253 @@
+2026-05-07T15:26:41.723942Z  INFO fe::lsp::startup: fe-language-server starting pid=502930 ppid=Some(502519) argv=["/home/cburgdorf/.fe/bin/fe", "lsp"] cwd=/home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue binary=/home/cburgdorf/.fe/bin/fe log_file=/home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue/.fe-lsp/502930.log version=26.1.0
+2026-05-07T15:26:41.724317Z  INFO fe::lsp::request: → request method=initialize request_id=Number(0)
+2026-05-07T15:26:41.724482Z  INFO fe_language_server::functionality::handlers: initializing language server!
+2026-05-07T15:26:41.724510Z  INFO fe::lsp::workspace: initialize params received process_id=Some(502519) client_name=Some("Visual Studio Code") client_version=Some("1.118.1") workspace_folders=["DoubleEndedQueue (file:///home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue)"] root_uri=Some("file:///home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue") root_path=Some("/home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue")
+2026-05-07T15:26:41.724522Z  INFO fe::lsp::workspace: chose workspace root chosen_root=/home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue
+2026-05-07T15:26:41.724887Z  INFO fe::lsp::workspace: workspace discovery complete workspace_root=/home/cburgdorf/Documents/hacking/fe/DoubleEndedQueue ingot_count=1 standalone_files=0 elapsed_ms=0
+2026-05-07T15:26:41.724943Z  INFO fe::lsp::request: ← response ok method=initialize request_id=Number(0) elapsed_ms=0
+2026-05-07T15:26:41.726016Z  INFO fe_language_server::functionality::handlers: language server initialized! recieved notification!
+2026-05-07T15:26:41.732727Z  INFO fe_language_server::functionality::handlers: Registered file watchers for *.fe and fe.toml
+2026-05-07T15:26:41.732737Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(1)
+2026-05-07T15:26:41.732787Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(2)
+2026-05-07T15:26:41.734603Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(1) elapsed_ms=1
+2026-05-07T15:26:41.734619Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(2) elapsed_ms=1
+2026-05-07T15:26:41.737128Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(3)
+2026-05-07T15:26:41.855157Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(3) elapsed_ms=118
+2026-05-07T15:26:41.937164Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(4)
+2026-05-07T15:26:41.954038Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(4) elapsed_ms=16
+2026-05-07T15:26:41.982704Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(5)
+2026-05-07T15:26:42.009665Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(5) elapsed_ms=26
+2026-05-07T15:26:42.030728Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(6)
+2026-05-07T15:26:42.030942Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(6) elapsed_ms=0
+2026-05-07T15:26:42.134466Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(7)
+2026-05-07T15:26:42.134803Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(7) elapsed_ms=0
+2026-05-07T15:26:42.183427Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(8)
+2026-05-07T15:26:42.185626Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(8) elapsed_ms=2
+2026-05-07T15:26:42.207754Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(9)
+2026-05-07T15:26:42.207946Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(9) elapsed_ms=0
+2026-05-07T15:26:43.312467Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(10)
+2026-05-07T15:26:43.312843Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(10) elapsed_ms=0
+2026-05-07T15:26:43.840605Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(11)
+2026-05-07T15:26:43.856211Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(11) elapsed_ms=15
+2026-05-07T15:26:45.256331Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(12)
+2026-05-07T15:26:45.266062Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(12) elapsed_ms=9
+2026-05-07T15:26:45.521147Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(13)
+2026-05-07T15:26:45.521563Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(13) elapsed_ms=0
+2026-05-07T15:26:45.673895Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(14)
+2026-05-07T15:26:45.674196Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(14) elapsed_ms=0
+2026-05-07T15:26:46.244635Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(15)
+2026-05-07T15:26:46.245121Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(15) elapsed_ms=0
+2026-05-07T15:26:47.096122Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(16)
+2026-05-07T15:26:47.096655Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(16) elapsed_ms=0
+2026-05-07T15:26:47.661160Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(17)
+2026-05-07T15:26:47.661756Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(17) elapsed_ms=0
+2026-05-07T15:26:47.742087Z  INFO fe::lsp::request: → request method=textDocument/definition request_id=Number(18)
+2026-05-07T15:26:47.742634Z  INFO fe::lsp::request: ← response ok method=textDocument/definition request_id=Number(18) elapsed_ms=0
+2026-05-07T15:26:47.776196Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(19)
+2026-05-07T15:26:47.776284Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(19) elapsed_ms=0
+2026-05-07T15:26:47.791491Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(20)
+2026-05-07T15:26:47.791738Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(20) elapsed_ms=0
+2026-05-07T15:26:47.792744Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(21)
+2026-05-07T15:26:47.794875Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(21) elapsed_ms=2
+2026-05-07T15:26:47.803146Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(22)
+2026-05-07T15:26:47.803339Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(22) elapsed_ms=0
+2026-05-07T15:26:47.853867Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(23)
+2026-05-07T15:26:47.853980Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(23) elapsed_ms=0
+2026-05-07T15:26:47.976111Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(24)
+2026-05-07T15:26:47.976418Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(24) elapsed_ms=0
+2026-05-07T15:26:48.036913Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(25)
+2026-05-07T15:26:48.041238Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(25) elapsed_ms=4
+2026-05-07T15:26:48.068477Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(26)
+2026-05-07T15:26:48.068696Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(26) elapsed_ms=0
+2026-05-07T15:26:48.077970Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(27)
+2026-05-07T15:26:48.078218Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(27) elapsed_ms=0
+2026-05-07T15:34:15.281550Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(28)
+2026-05-07T15:34:15.289442Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(28) elapsed_ms=7
+2026-05-07T15:58:33.386983Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(29)
+2026-05-07T15:58:33.395357Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(29) elapsed_ms=8
+2026-05-07T15:58:45.350031Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(30)
+2026-05-07T15:58:45.354665Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(30) elapsed_ms=4
+2026-05-07T15:59:26.153144Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(31)
+2026-05-07T15:59:26.158960Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(31) elapsed_ms=5
+2026-05-07T15:59:30.273106Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(32)
+2026-05-07T15:59:30.273759Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(32) elapsed_ms=0
+2026-05-07T15:59:30.281009Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(33)
+2026-05-07T15:59:30.281214Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(33) elapsed_ms=0
+2026-05-07T15:59:30.296784Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(34)
+2026-05-07T15:59:30.298308Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(34) elapsed_ms=1
+2026-05-07T15:59:30.298401Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(35)
+2026-05-07T15:59:30.307376Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(35) elapsed_ms=8
+2026-05-07T15:59:30.363802Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(36)
+2026-05-07T15:59:30.364118Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(36) elapsed_ms=0
+2026-05-07T15:59:30.472659Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(37)
+2026-05-07T15:59:30.472888Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(37) elapsed_ms=0
+2026-05-07T15:59:30.524035Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(38)
+2026-05-07T15:59:30.525574Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(38) elapsed_ms=1
+2026-05-07T15:59:30.553503Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(39)
+2026-05-07T15:59:30.553732Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(39) elapsed_ms=0
+2026-05-07T15:59:30.573643Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(40)
+2026-05-07T15:59:30.573866Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(40) elapsed_ms=0
+2026-05-07T15:59:44.512023Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(41)
+2026-05-07T15:59:44.512367Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(41) elapsed_ms=0
+2026-05-07T15:59:47.543041Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(42)
+2026-05-07T15:59:47.543443Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(42) elapsed_ms=0
+2026-05-07T15:59:47.552697Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(43)
+2026-05-07T15:59:47.553094Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(43) elapsed_ms=0
+2026-05-07T15:59:47.600955Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(44)
+2026-05-07T15:59:47.601484Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(44) elapsed_ms=0
+2026-05-07T15:59:47.639456Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(45)
+2026-05-07T15:59:47.639752Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(45) elapsed_ms=0
+2026-05-07T15:59:47.742885Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(46)
+2026-05-07T15:59:47.743614Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(46) elapsed_ms=0
+2026-05-07T15:59:47.794326Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(47)
+2026-05-07T15:59:47.797393Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(47) elapsed_ms=3
+2026-05-07T15:59:47.814932Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(48)
+2026-05-07T15:59:47.815216Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(48) elapsed_ms=0
+2026-05-07T15:59:47.835929Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(49)
+2026-05-07T15:59:47.836322Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(49) elapsed_ms=0
+2026-05-07T15:59:47.842811Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(50)
+2026-05-07T15:59:47.843813Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(51)
+2026-05-07T15:59:47.847651Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(50) elapsed_ms=4
+2026-05-07T15:59:47.847792Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(51) elapsed_ms=3
+2026-05-07T15:59:59.526810Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(52)
+2026-05-07T15:59:59.527258Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(52) elapsed_ms=0
+2026-05-07T16:00:00.629978Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(53)
+2026-05-07T16:00:00.630439Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(53) elapsed_ms=0
+2026-05-07T16:00:05.679056Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(54)
+2026-05-07T16:00:05.679548Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(54) elapsed_ms=0
+2026-05-07T16:00:05.733140Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(55)
+2026-05-07T16:00:05.733939Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(55) elapsed_ms=0
+2026-05-07T16:00:05.785541Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(56)
+2026-05-07T16:00:05.786290Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(56) elapsed_ms=0
+2026-05-07T16:00:06.775881Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(57)
+2026-05-07T16:00:06.776581Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(57) elapsed_ms=0
+2026-05-07T16:00:26.636838Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(58)
+2026-05-07T16:00:26.637300Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(58) elapsed_ms=0
+2026-05-07T16:00:27.079839Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(59)
+2026-05-07T16:00:27.080579Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(59) elapsed_ms=0
+2026-05-07T16:00:28.242841Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(60)
+2026-05-07T16:00:28.243545Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(60) elapsed_ms=0
+2026-05-07T16:00:28.343332Z  INFO fe::lsp::request: → request method=textDocument/definition request_id=Number(61)
+2026-05-07T16:00:28.343983Z  INFO fe::lsp::request: ← response ok method=textDocument/definition request_id=Number(61) elapsed_ms=0
+2026-05-07T16:00:28.396950Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(62)
+2026-05-07T16:00:28.397068Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(62) elapsed_ms=0
+2026-05-07T16:00:28.404378Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(63)
+2026-05-07T16:00:28.404805Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(63) elapsed_ms=0
+2026-05-07T16:00:28.415225Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(64)
+2026-05-07T16:00:28.417852Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(64) elapsed_ms=2
+2026-05-07T16:00:28.418975Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(65)
+2026-05-07T16:00:28.419448Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(65) elapsed_ms=0
+2026-05-07T16:00:28.455927Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(66)
+2026-05-07T16:00:28.456609Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(66) elapsed_ms=0
+2026-05-07T16:00:28.457380Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(67)
+2026-05-07T16:00:28.457447Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(67) elapsed_ms=0
+2026-05-07T16:00:28.580720Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(68)
+2026-05-07T16:00:28.581539Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(68) elapsed_ms=0
+2026-05-07T16:00:28.636923Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(69)
+2026-05-07T16:00:28.637055Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(69) elapsed_ms=0
+2026-05-07T16:00:28.643137Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(70)
+2026-05-07T16:00:28.667989Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(70) elapsed_ms=24
+2026-05-07T16:00:28.683260Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(71)
+2026-05-07T16:00:28.683955Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(71) elapsed_ms=0
+2026-05-07T16:00:28.698546Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(72)
+2026-05-07T16:00:28.698822Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(72) elapsed_ms=0
+2026-05-07T16:00:32.597665Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(73)
+2026-05-07T16:00:32.598291Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(73) elapsed_ms=0
+2026-05-07T16:00:35.214773Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(74)
+2026-05-07T16:00:35.215188Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(74) elapsed_ms=0
+2026-05-07T16:00:35.833311Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(75)
+2026-05-07T16:00:35.833763Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(75) elapsed_ms=0
+2026-05-07T16:00:35.886828Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(76)
+2026-05-07T16:00:35.887110Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(76) elapsed_ms=0
+2026-05-07T16:00:36.982675Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(77)
+2026-05-07T16:00:36.982962Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(77) elapsed_ms=0
+2026-05-07T16:00:37.426507Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(78)
+2026-05-07T16:00:37.426794Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(78) elapsed_ms=0
+2026-05-07T16:00:39.294895Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(79)
+2026-05-07T16:00:39.295664Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(79) elapsed_ms=0
+2026-05-07T16:00:39.400672Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(80)
+2026-05-07T16:00:39.400960Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(80) elapsed_ms=0
+2026-05-07T16:00:39.494966Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(81)
+2026-05-07T16:00:39.510653Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(81) elapsed_ms=15
+2026-05-07T16:00:43.872833Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(82)
+2026-05-07T16:00:43.873238Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(82) elapsed_ms=0
+2026-05-07T16:00:43.913071Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(83)
+2026-05-07T16:00:43.913777Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(83) elapsed_ms=0
+2026-05-07T16:00:43.964938Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(84)
+2026-05-07T16:00:43.965169Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(84) elapsed_ms=0
+2026-05-07T16:00:43.975223Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(85)
+2026-05-07T16:00:43.975921Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(85) elapsed_ms=0
+2026-05-07T16:00:44.070942Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(86)
+2026-05-07T16:00:44.071580Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(86) elapsed_ms=0
+2026-05-07T16:00:44.132124Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(87)
+2026-05-07T16:00:44.132336Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(87) elapsed_ms=0
+2026-05-07T16:00:44.168840Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(88)
+2026-05-07T16:00:44.169014Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(89)
+2026-05-07T16:00:44.172156Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(90)
+2026-05-07T16:00:44.173576Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(88) elapsed_ms=4
+2026-05-07T16:00:44.173756Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(90) elapsed_ms=1
+2026-05-07T16:00:44.175920Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(89) elapsed_ms=6
+2026-05-07T16:00:44.660048Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(91)
+2026-05-07T16:00:44.660610Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(91) elapsed_ms=0
+2026-05-07T16:00:45.717846Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(92)
+2026-05-07T16:00:45.718187Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(92) elapsed_ms=0
+2026-05-07T16:00:49.028970Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(93)
+2026-05-07T16:00:49.029632Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(93) elapsed_ms=0
+2026-05-07T16:00:49.206652Z  INFO fe::lsp::request: → request method=textDocument/definition request_id=Number(94)
+2026-05-07T16:00:49.207121Z  INFO fe::lsp::request: ← response ok method=textDocument/definition request_id=Number(94) elapsed_ms=0
+2026-05-07T16:00:51.177377Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(95)
+2026-05-07T16:00:51.178066Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(95) elapsed_ms=0
+2026-05-07T16:00:51.267331Z  INFO fe::lsp::request: → request method=textDocument/definition request_id=Number(96)
+2026-05-07T16:00:51.268018Z  INFO fe::lsp::request: ← response ok method=textDocument/definition request_id=Number(96) elapsed_ms=0
+2026-05-07T16:00:51.312894Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(97)
+2026-05-07T16:00:51.312984Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(97) elapsed_ms=0
+2026-05-07T16:00:51.322338Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(98)
+2026-05-07T16:00:51.322640Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(98) elapsed_ms=0
+2026-05-07T16:00:51.322818Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(99)
+2026-05-07T16:00:51.324975Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(99) elapsed_ms=2
+2026-05-07T16:00:51.335633Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(100)
+2026-05-07T16:00:51.336624Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(100) elapsed_ms=0
+2026-05-07T16:00:51.383262Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(101)
+2026-05-07T16:00:51.383644Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(101) elapsed_ms=0
+2026-05-07T16:00:51.384780Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(102)
+2026-05-07T16:00:51.384847Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(102) elapsed_ms=0
+2026-05-07T16:00:51.498347Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(103)
+2026-05-07T16:00:51.498769Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(103) elapsed_ms=0
+2026-05-07T16:00:51.553275Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(104)
+2026-05-07T16:00:51.553427Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(104) elapsed_ms=0
+2026-05-07T16:00:51.557904Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(105)
+2026-05-07T16:00:51.566719Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(105) elapsed_ms=8
+2026-05-07T16:00:51.599550Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(106)
+2026-05-07T16:00:51.599944Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(106) elapsed_ms=0
+2026-05-07T16:00:51.615623Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(107)
+2026-05-07T16:00:51.615901Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(107) elapsed_ms=0
+2026-05-07T16:00:52.424299Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(108)
+2026-05-07T16:00:52.424673Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(108) elapsed_ms=0
+2026-05-07T16:00:55.201352Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(109)
+2026-05-07T16:00:55.201721Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(109) elapsed_ms=0
+2026-05-07T16:00:56.527912Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(110)
+2026-05-07T16:00:56.528453Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(110) elapsed_ms=0
+2026-05-07T16:00:57.464276Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(111)
+2026-05-07T16:00:57.464644Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(111) elapsed_ms=0
+2026-05-07T16:01:13.186022Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(112)
+2026-05-07T16:01:13.186423Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(112) elapsed_ms=0
+2026-05-07T16:01:38.392577Z  INFO fe::lsp::request: → request method=textDocument/hover request_id=Number(113)
+2026-05-07T16:01:38.392925Z  INFO fe::lsp::request: ← response ok method=textDocument/hover request_id=Number(113) elapsed_ms=0
+2026-05-07T16:01:39.786085Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(114)
+2026-05-07T16:01:39.786326Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(114) elapsed_ms=0
+2026-05-07T16:01:39.816802Z  INFO fe::lsp::request: → request method=textDocument/inlayHint request_id=Number(115)
+2026-05-07T16:01:39.817322Z  INFO fe::lsp::request: ← response ok method=textDocument/inlayHint request_id=Number(115) elapsed_ms=0
+2026-05-07T16:01:39.872790Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(116)
+2026-05-07T16:01:39.873033Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(116) elapsed_ms=0
+2026-05-07T16:01:39.886046Z  INFO fe::lsp::request: → request method=textDocument/documentHighlight request_id=Number(117)
+2026-05-07T16:01:39.886860Z  INFO fe::lsp::request: ← response ok method=textDocument/documentHighlight request_id=Number(117) elapsed_ms=0
+2026-05-07T16:01:39.985104Z  INFO fe::lsp::request: → request method=textDocument/foldingRange request_id=Number(118)
+2026-05-07T16:01:39.985672Z  INFO fe::lsp::request: ← response ok method=textDocument/foldingRange request_id=Number(118) elapsed_ms=0
+2026-05-07T16:01:40.044775Z  INFO fe::lsp::request: → request method=textDocument/codeAction request_id=Number(119)
+2026-05-07T16:01:40.045067Z  INFO fe::lsp::request: ← response ok method=textDocument/codeAction request_id=Number(119) elapsed_ms=0
+2026-05-07T16:01:40.080945Z  INFO fe::lsp::request: → request method=textDocument/codeLens request_id=Number(120)
+2026-05-07T16:01:40.082214Z  INFO fe::lsp::request: → request method=textDocument/semanticTokens/full request_id=Number(121)
+2026-05-07T16:01:40.086654Z  INFO fe::lsp::request: → request method=textDocument/documentSymbol request_id=Number(122)
+2026-05-07T16:01:40.088010Z  INFO fe::lsp::request: ← response ok method=textDocument/semanticTokens/full request_id=Number(121) elapsed_ms=5
+2026-05-07T16:01:40.088457Z  INFO fe::lsp::request: ← response ok method=textDocument/codeLens request_id=Number(120) elapsed_ms=7
+2026-05-07T16:01:40.088595Z  INFO fe::lsp::request: ← response ok method=textDocument/documentSymbol request_id=Number(122) elapsed_ms=1

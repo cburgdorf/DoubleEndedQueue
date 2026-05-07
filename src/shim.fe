@@ -1,0 +1,33 @@
+// Shims for APIs landing in Fe 26.2 (https://github.com/ethereum/fe/pull/1430).
+// Delete this file once 26.2+ is the minimum supported version.
+//
+// Two pieces:
+//   1. `Option::ok_or` — extension trait so the chain `.ok_or(err).unwrap()`
+//      works on stock Fe 26.1.0.
+//   2. `Panic::from(code)` — a local `Panic` namespace with a `from` factory
+//      that returns `std::evm::Panic`. Inherent impls cannot be added to a
+//      foreign type, so we route through a local zero-sized struct and alias
+//      the std `Panic` as `StdPanic` to avoid the name clash.
+
+use std::evm::Panic as StdPanic
+
+pub trait OkOrShim<T> {
+    fn ok_or<E>(own self, _ err: own E) -> Result<E, T>
+}
+
+impl<T> OkOrShim<T> for Option<T> {
+    fn ok_or<E>(own self, _ err: own E) -> Result<E, T> {
+        match self {
+            Option::Some(v) => Result::Ok(v)
+            Option::None => Result::Err(err)
+        }
+    }
+}
+
+pub struct Panic {}
+
+impl Panic {
+    pub fn from(_ code: u256) -> StdPanic {
+        StdPanic { code: code }
+    }
+}

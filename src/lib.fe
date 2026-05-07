@@ -10,8 +10,14 @@
 // Switching is purely a gas optimisation and does not change the API.
 
 use std::evm::StorageMap
+use std::evm::revert_error
+use std::evm::panic::{PANIC_POP_EMPTY, PANIC_INDEX_OUT_OF_BOUNDS, PANIC_OUT_OF_MEMORY}
 use std::evm::word::WordRepr
 use core::ops::{WrappingAdd, WrappingSub}
+
+// Local shims for Option::ok_or and Panic::from — see src/shim.fe.
+// Drop this import (and the file) once Fe 26.2+ is the minimum supported version.
+use ingot::shim::{OkOrShim, Panic}
 
 /// Double-ended queue with O(1) push/pop on both ends.
 ///
@@ -24,8 +30,6 @@ pub struct Deque<T> {
 }
 
 impl<T> Deque<T> where T: WordRepr + Default {
-    // ---- Inspection --------------------------------------------------------
-
     pub fn length(self) -> u256 {
         self.end.wrapping_sub(self.begin)
     }
@@ -33,32 +37,6 @@ impl<T> Deque<T> where T: WordRepr + Default {
     pub fn empty(self) -> bool {
         self.end == self.begin
     }
-
-    /// Resets indices without reclaiming stale slot storage.
-    pub fn clear(mut self) {
-        self.begin = 0
-        self.end = 0
-    }
-
-    // ---- Internal helpers --------------------------------------------------
-
-    fn pop_back_unchecked(mut self) -> T {
-        let i = self.end.wrapping_sub(1)
-        let value = self.data.get(key: i)
-        self.data.set(key: i, value: T::default())
-        self.end = i
-        value
-    }
-
-    fn pop_front_unchecked(mut self) -> T {
-        let i = self.begin
-        let value = self.data.get(key: i)
-        self.data.set(key: i, value: T::default())
-        self.begin = i.wrapping_add(1)
-        value
-    }
-
-    // ---- Back --------------------------------------------------------------
 
     pub fn try_push_back(mut self, _ value: own T) -> bool {
         let next = self.end.wrapping_add(1)
@@ -72,7 +50,7 @@ impl<T> Deque<T> where T: WordRepr + Default {
 
     pub fn push_back(mut self, _ value: own T) {
         if !self.try_push_back(value) {
-            panic()
+            revert_error(Panic::from(PANIC_OUT_OF_MEMORY))
         }
     }
 
@@ -80,31 +58,16 @@ impl<T> Deque<T> where T: WordRepr + Default {
         if self.empty() {
             return Option::None
         }
-        Option::Some(self.pop_back_unchecked())
+        let i = self.end.wrapping_sub(1)
+        let value = self.data.get(key: i)
+        self.data.set(key: i, value: T::default())
+        self.end = i
+        Option::Some(value)
     }
 
     pub fn pop_back(mut self) -> T {
-        if self.empty() {
-            panic()
-        }
-        self.pop_back_unchecked()
+        self.try_pop_back().ok_or(Panic::from(PANIC_POP_EMPTY)).unwrap()
     }
-
-    pub fn try_back(self) -> Option<T> {
-        if self.empty() {
-            return Option::None
-        }
-        Option::Some(self.data.get(key: self.end.wrapping_sub(1)))
-    }
-
-    pub fn back(self) -> T {
-        if self.empty() {
-            panic()
-        }
-        self.data.get(key: self.end.wrapping_sub(1))
-    }
-
-    // ---- Front -------------------------------------------------------------
 
     pub fn try_push_front(mut self, _ value: own T) -> bool {
         let next = self.begin.wrapping_sub(1)
@@ -118,7 +81,7 @@ impl<T> Deque<T> where T: WordRepr + Default {
 
     pub fn push_front(mut self, _ value: own T) {
         if !self.try_push_front(value) {
-            panic()
+            revert_error(Panic::from(PANIC_OUT_OF_MEMORY))
         }
     }
 
@@ -126,14 +89,15 @@ impl<T> Deque<T> where T: WordRepr + Default {
         if self.empty() {
             return Option::None
         }
-        Option::Some(self.pop_front_unchecked())
+        let i = self.begin
+        let value = self.data.get(key: i)
+        self.data.set(key: i, value: T::default())
+        self.begin = i.wrapping_add(1)
+        Option::Some(value)
     }
 
     pub fn pop_front(mut self) -> T {
-        if self.empty() {
-            panic()
-        }
-        self.pop_front_unchecked()
+        self.try_pop_front().ok_or(Panic::from(PANIC_POP_EMPTY)).unwrap()
     }
 
     pub fn try_front(self) -> Option<T> {
@@ -144,13 +108,19 @@ impl<T> Deque<T> where T: WordRepr + Default {
     }
 
     pub fn front(self) -> T {
-        if self.empty() {
-            panic()
-        }
-        self.data.get(key: self.begin)
+        self.try_front().ok_or(Panic::from(PANIC_INDEX_OUT_OF_BOUNDS)).unwrap()
     }
 
-    // ---- Indexed access ----------------------------------------------------
+    pub fn try_back(self) -> Option<T> {
+        if self.empty() {
+            return Option::None
+        }
+        Option::Some(self.data.get(key: self.end.wrapping_sub(1)))
+    }
+
+    pub fn back(self) -> T {
+        self.try_back().ok_or(Panic::from(PANIC_INDEX_OUT_OF_BOUNDS)).unwrap()
+    }
 
     pub fn try_at(self, _ index: u256) -> Option<T> {
         if index >= self.length() {
@@ -160,9 +130,12 @@ impl<T> Deque<T> where T: WordRepr + Default {
     }
 
     pub fn at(self, _ index: u256) -> T {
-        if index >= self.length() {
-            panic()
-        }
-        self.data.get(key: self.begin.wrapping_add(index))
+        self.try_at(index).ok_or(Panic::from(PANIC_INDEX_OUT_OF_BOUNDS)).unwrap()
+    }
+
+    /// Resets indices without reclaiming stale slot storage.
+    pub fn clear(mut self) {
+        self.begin = 0
+        self.end = 0
     }
 }
